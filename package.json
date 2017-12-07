@@ -1,0 +1,15 @@
+{
+  "name": "it-helpdesk-bot-shan-initiated",
+  "version": "",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "api-ai-recognizer": "^1.1.1",
+    "apiai": "^4.0.3",
+    "botbuilder": "^3.11.0",
+    "ignore-case": "^0.1.0",
+    "mysql": "^2.15.0",
+    "restify": "^6.3.2"
+  }
+}
