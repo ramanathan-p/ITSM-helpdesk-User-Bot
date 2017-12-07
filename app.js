@@ -42,9 +42,7 @@ bot.dialog('/',intents);
 
 intents.matches('Default Welcome Intent',function(session, args){
     console.log('\n\n');
-    console.log('--11111111111111--> args: ',args);
-    //console.log('--22222222222222--> session.: ', session);
-   
+    
     
     var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment');
    // console.log('fulfillment: ',fulfillment);
@@ -67,7 +65,7 @@ intents.matches('Default Welcome Intent',function(session, args){
 
 intents.matches('Default Fallback Intent',function(session, args){
     console.log('\n\n');
-    console.log('args: ',args);
+    
     console.log('--1--> args.intent: ', args.intent);
     
     var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment');
@@ -98,7 +96,7 @@ intents.matches('Default Fallback Intent',function(session, args){
 
 intents.matches('Generic problem with PC',function(session, args){
     console.log('\n\n');
-    console.log('args: ',args);
+    
     console.log('--1--> args.intent: ', args.intent);
     
     var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment');
