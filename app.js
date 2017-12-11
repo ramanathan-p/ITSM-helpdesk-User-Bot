@@ -16,9 +16,9 @@ var connector = new builder.ChatConnector({
 });
 
 // Listen for messages from users 
-//server.post('/api/messages', connector.listen());
+server.post('/api/messages', connector.listen());
 //server.post('/chatbot', connector.listen());
-server.post('/', connector.listen());
+//server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector);
 
@@ -220,7 +220,7 @@ intents.matches('No Computer Issue',function(session, args){
        
         session.sendTyping();
         
-        session.send("Sorry, i can help you on Computer related issues only..");
+        session.send("Sorry, ASASAS   i can help you on Computer related issues only..");
       // session.send(card);
       
       
