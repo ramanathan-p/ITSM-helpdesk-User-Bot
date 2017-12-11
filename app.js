@@ -220,7 +220,7 @@ intents.matches('No Computer Issue',function(session, args){
        
         session.sendTyping();
         
-        session.send("Sorry, ASASAS   i can help you on Computer related issues only..");
+        session.send("Sorry, i can help you on Computer related issues only..");
       // session.send(card);
       
       
