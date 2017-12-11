@@ -16,7 +16,7 @@ var connector = new builder.ChatConnector({
 });
 
 // Listen for messages from users 
-server.post('/api/messages', connector.listen());
+server.post('/webhook', connector.listen());
 //server.post('/chatbot', connector.listen());
 //server.post('/', connector.listen());
 
@@ -244,9 +244,6 @@ intents.matches('Do Not Know Computer Id',function(session, args){
         console.log('----> session.message.text: ',session.message.text);
         session.send("Is the Computer (Laptop, Desktop and so on..) officially assigned to you or your are using some other's one?");
 });  
-
-
-
 
 
 
