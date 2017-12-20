@@ -22,6 +22,7 @@
     "express": "^4.13.4",
     "hashmap": "^2.3.0",
     "ignore-case": "^0.1.0",
+    "mysql": "^2.15.0",
     "node-uuid": "^1.4.7",
     "restify": "^6.3.4"
   }
