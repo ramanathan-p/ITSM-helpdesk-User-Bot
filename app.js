@@ -17,7 +17,7 @@
 'use strict';
 
 
-console.log('11111111111');
+console.log('------------> Start of app.js <------------ ');
 
 /*
 const apiai = require('apiai');
@@ -72,7 +72,7 @@ var connector = new builder.ChatConnector({
 });
 
 // Listen for messages from users 
-server.post('/chat', connector.listen());
+server.post('/webhook', connector.listen());
 //server.post('/chatbot', connector.listen());
 //server.post('/', connector.listen());
 
@@ -89,8 +89,6 @@ var intents = new builder.IntentDialog({
 
 });
 
-console.log('-----CLEMENT-----> intents: ', intents);
-
 
 console.log('\n\n\n');
 
@@ -99,7 +97,7 @@ bot.dialog('/',intents);
 
 
 intents.matches('Default Welcome Intent',function(session, args){
-	console.log('-----RAMA-----> intents: ', intents);
+	console.log('----------> All Intents List: ', intents);
     console.log(' -----> Previous Intent: ',map.get("prev_intent"));
     console.log(' -----> Previous Input: ',map.get("prev_input"));
     console.log('----> session.message.text: ',session.message.text);
@@ -630,4 +628,4 @@ server.listen(process.env.port || process.env.PORT || 7070, function () { //6060
  
 });
 
-console.log('22222222222');
+console.log('------------> End of app.js <------------ ');
