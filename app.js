@@ -342,6 +342,10 @@ intents.matches('Get N Validate Asset Id',function(session, args){
     console.log(' -----> Previous Input: ',map.get("prev_input"));
     console.log('----> session.message.text: ',session.message.text);
 
+    //session.set("Ram", "My name is Ramanathan");
+    //session.se
+    //console.log('---> Ram from Session: ',session.get("Ram"));
+
     session.sendTyping();
      
     if ( typeof map.get("prev_input") !== 'undefined' && map.get("prev_input")) {
@@ -365,38 +369,43 @@ intents.matches('Get N Validate Asset Id',function(session, args){
                 session.sendTyping();
                 console.log('\n\n');
                
-                var selQuery = "select count(*) count from asset where asset_name = ? and assigned_to = 'java-ramanathan'";
-                 connection.connect();
-                if(connection != null){
-                        connection.query(selQuery, ['ram-lp'], function (err, result) {
+                var selQuery = "select count(*) count from asset where asset_name = ? and asset_desc = 'java-ramanathan'";
+                connection.connect();
+               if(connection != null){
+                       connection.query(selQuery, ['ram-lp'], function (err, result) {
+                                console.log(' selQuery: ',selQuery);
                                 console.log(" ------- Asset name is found @ DB -------- ");
                                 console.log(' err: ', err);
                                  console.log(' selQuery result: ', result);
                                  
                                  var stringCount = JSON.stringify(result);
-                                 console.log(' stringCount: ', stringCount);
-                                 var json =  JSON.parse(stringCount);
-                                 console.log(' json: ', json);
-                                 console.log(' json.count: ', json[0].count);
+                                 console.log(' --123-> stringCount: ', stringCount);
+                                 if(typeof stringCount !== 'undefined'){
+                                    var json =  JSON.parse(stringCount);
+                                    console.log(' json: ', json);
+                                    console.log(' json.count: ', json[0].count);
 
-                                console.log(' Closing the DB connection ........ !');
-                                connection.end();
+                                    console.log(' Closing the DB connection ........ !');
+                                    connection.end();
 
-                                if(json[0].count == 1){
-                                        setTimeout(function () {
-                                            session.send("OK, I am able to figure out the Asset ID in our asset list.");
-                                        }, 6000);
-                                        /*
-                                        setTimeout(function () {
-                                            session.send("Can you please elaborate the problem you are facing?");
-                                        }, 10000);
-                                        */
-                                        setTimeout(function () {
-                                                    //session.send("OK, I could identify your PC from our database. It's liz-lp. Can you please elaborate the problem you are facing?.");
-                                                    session.send("Thank you, I have created a ticket for you. The ticket id is HD003456. Someone from IT department will attend your problem within 24 hours.");
-                                        }, 9000);       
+                                    if(json[0].count == 1){
+                                            setTimeout(function () {
+                                                session.send("OK, I am able to figure out the Asset ID in our asset list.");
+                                            }, 6000);
+                                            /*
+                                            setTimeout(function () {
+                                                session.send("Can you please elaborate the problem you are facing?");
+                                            }, 10000);
+                                            */
+                                            setTimeout(function () {
+                                                        //session.send("OK, I could identify your PC from our database. It's liz-lp. Can you please elaborate the problem you are facing?.");
+                                                        session.send("Thank you, I have created a ticket for you. The ticket id is HD003456. Someone from IT department will attend your problem within 24 hours.");
+                                            }, 9000);       
+                                    } else {
+                                            session.send(" Asset id is not found in our asset list.... Please check again.");
+                                    }
                                 } else {
-                                        session.send(" Asset id is not found in our asset list.... Please check again.");
+                                    session.send(" Asset id is not found in our asset list.... Please check again.");
                                 }
                         });
                     } 
@@ -417,7 +426,7 @@ intents.matches('Get N Validate Asset Id',function(session, args){
                          
                             connection.connect();
 
-                            var selQuery = "select count(*) count from asset where asset_name = ? and assigned_to = 'java-ramanathan'";
+                            var selQuery = "select count(*) count from asset where asset_name = ? and asset_desc = 'java-ramanathan'";
                             if(connection != null){
                                     connection.query(selQuery, [element], function (err, result) {
                                             console.log(" ------- Asset name is found @ DB -------- ");
@@ -425,7 +434,7 @@ intents.matches('Get N Validate Asset Id',function(session, args){
                                             console.log(' selQuery result: ', result);
                                             
                                             var stringCount = JSON.stringify(result);
-                                            console.log(' stringCount: ', stringCount);
+                                            console.log(' ===> stringCount: ', stringCount);
                                             var json =  JSON.parse(stringCount);
                                             console.log(' json: ', json);
                                             console.log(' json.count: ', json[0].count);
