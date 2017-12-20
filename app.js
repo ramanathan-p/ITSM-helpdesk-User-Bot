@@ -462,7 +462,7 @@ intents.matches('Get N Validate Asset Id',function(session, args){
                                     });
                                 } 
                             } else {
-                                session.send("Oops..! It seems the given Asset ID is invalid.");
+                                session.send("Asset ID is invalid.");
                             }
                 }, this);
         }
